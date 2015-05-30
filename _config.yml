@@ -1,0 +1,12 @@
+# Site settings
+title: Portfolio
+email: andrew1503@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Portfolio website for Andrew Monty to
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: andrew1503
+github_username:  andrew1503
+
+# Build settings
+markdown: kramdown
