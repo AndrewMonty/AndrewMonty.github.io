@@ -1,0 +1,21 @@
+<header>
+
+  <div class="wrapper">
+
+    <nav class="nav left">
+      <a class="logo" href="{{ site.baseurl }}/">
+        <img src="{{ site.baseurl }}{{ site.logo }}" alt="" class="logo">
+      </a>
+    </nav>
+
+    <nav class="nav right">
+      {% for section in site.sections %}
+        <a class="section-link" href="{{ site.baseurl }}#{{ section.title }}">{{ section.title }}</a>
+      {% endfor %}
+    </nav>
+    
+    <div class="clearfix"></div>
+
+  </div>
+
+</header>

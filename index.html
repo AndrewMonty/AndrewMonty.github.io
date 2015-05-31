@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+{% for section in site.sections %}
+	
+	<section id="{{ section.title }}" 
+		{% if section.background-image %}
+			style="background-image: url('{{ section.background-image }}');"
+		{% endif %}
+		class="{{ section.theme }}"
+	>
+		<div class="wrapper">
+			{{ section.content }}	
+		</div>
+	</section>
+	
+{% endfor %}

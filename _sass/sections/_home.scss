@@ -1,0 +1,59 @@
+#home {
+	
+	// margin-top: 64px;
+	padding: 150px 0
+
+}
+
+.hero-image {
+
+	margin: 0 auto;
+
+}
+
+.slug {
+	
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+	font-size: 26px;
+	text-transform: uppercase;
+
+	ul {
+
+		display: inline-block;
+		border: 5px solid #fff;
+		background: rgba(50,50,50,0.75);
+		padding: 0.3em 0.5em;
+
+		// &:first-child {
+			
+		// 	text-decoration: none;
+
+		// }
+
+		li {
+
+			display: inline-block;
+			&:after { 
+				content: " \00b7"; 
+				font-weight: 700;
+			}
+			&:last-of-type:after { content: none; }
+
+			@media (max-width: 725px) {
+				
+				display: block;
+				line-height: 1em;
+
+				&:after { 
+					content: " \A \00b7"; 
+					white-space:pre;
+				}
+
+			}		
+
+		}
+
+	}
+}
