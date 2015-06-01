@@ -18,12 +18,24 @@ section {
 
 	}
 
+	h1, h2 {
+
+		clear: both;
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: $padding-default;
+
+	}
+
 	h1 {
 
 		font-weight: 700;
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 18;
+
+	}
+
+	h2 {
+
+		margin-top: $padding-default;
 
 	}
 
