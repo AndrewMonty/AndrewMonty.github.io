@@ -2,7 +2,26 @@
 title: contact
 theme: light
 ---
+
 <h1>contact</h1>
-<p>
-	Fingerstache four dollar toast church-key Marfa, swag Intelligentsia cliche synth small batch bitters irony health goth flexitarian. Fingerstache fap forage authentic. Echo Park Truffaut fingerstache, asymmetrical paleo 8-bit 90's hashtag Helvetica Vice VHS literally Neutra cred mustache. Blue Bottle tousled tofu artisan chia sartorial. Flannel 8-bit Etsy Schlitz bitters, kogi direct trade heirloom Wes Anderson yr Austin viral swag PBR&B. Raw denim meggings synth Echo Park. Deep v paleo polaroid gastropub freegan, hashtag artisan.
-</p>
+
+<form method="POST" action="//formspree.io/{{ site.email }}">
+    
+    <div class="input-group">
+	    <!-- <label for="name">your name</label> -->
+		<input type="text" name="name" placeholder="your name">
+    </div>
+	    
+	<div class="input-group">
+	    <!-- <label for="_replyto">your email</label> -->
+		<input type="email" name="_replyto" placeholder="your email address">
+	</div>
+    
+    <!-- <label for="subject">subject</label> -->
+	<input type="text" name="subject" placeholder="subject (reason for contact)">
+    
+    <!-- <label for="message">message</label> -->
+	<textarea name="message" cols="30" rows="10" placeholder="Tell me a bit about your project, or just say hello!"></textarea>
+    
+    <input type="submit" value="Send">
+</form>

@@ -1,0 +1,11 @@
+---
+layout: work
+title:  "How It Works Graphic"
+date:   2015-05-31 12:58:00
+categories: design graphics
+images: 
+ - url: /assets/work/pasl_how_to.png
+   alt: Steps for using printashippinglabel.com
+   title: How It Works Graphic
+---
+Graphics for use on the printashippinglabel.com website, illustrating how simple the process is.

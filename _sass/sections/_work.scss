@@ -1,0 +1,80 @@
+#work .wrapper {
+
+	max-width: 80%;
+
+	@media screen and ( max-width: $on-tablet ) {
+
+		max-width: 100%;
+		padding: 0;
+
+	}
+
+}
+
+.work-container {
+	
+	margin: $padding-cozy auto;
+
+	.work-thumb {
+
+		overflow: hidden;
+		display: block;
+		height: 200px;
+		text-decoration: none;
+		
+		background-color: $grey-color;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 130%;
+		
+		float: left;
+		width: 25%;
+		
+		@media screen and ( max-width: $on-laptop ) {
+
+			float: left;
+			width: 50%;
+		}
+
+		.work-thumb-overlay {
+
+			position: relative;
+			top: 100%;
+			height: 100%;
+
+			font-size: 24px;
+			text-align: center;
+			background: rgba($grey-color-light, 0.9);
+
+			@include transitions(0.3s);
+			
+			span {
+
+				box-sizing: border-box;
+				padding: 10px;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				transform: translateY(-50%);
+
+			}
+
+		}
+
+		&:hover {
+
+			cursor: pointer;
+	
+			.work-thumb-overlay {
+
+				top: 0px;
+
+			}			
+
+		}
+
+	}
+
+}
