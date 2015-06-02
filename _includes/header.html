@@ -9,13 +9,13 @@
       <div class="clearfix"></div>
     </nav>
 
-    <nav id="#menu" class="nav right">
+    <nav id="menu" class="nav right">
       {% for section in site.sections %}
         <a class="section-link" href="{{ site.baseurl }}#{{ section.title }}">{{ section.title }}</a>
       {% endfor %}
     </nav>
 
-    <button class="hamburger cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
+    <button id="hamburger" class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
 
     <div class="clearfix"></div>
 

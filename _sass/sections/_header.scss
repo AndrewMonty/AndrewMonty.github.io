@@ -1,5 +1,6 @@
 header {
 
+	z-index: 99999;
 	position: fixed;
 	top: 0;
 
@@ -45,11 +46,10 @@ header {
 
 	}
 
-	.hamburger {
+	#hamburger {
 
 		background: none;
 		position: absolute;
-		z-index: 4;
 		top: 0;
 		right: -100%;
 		padding: 20px;
@@ -63,6 +63,12 @@ header {
 		&.active {
 
 			background: none;
+
+			span {
+
+				background: none;
+				
+			}
 
 			span:before, span:after {
 
@@ -85,7 +91,6 @@ header {
 	nav {
 
 		display: block;
-		z-index: 3;
 
 		&.left {
 
@@ -108,7 +113,10 @@ header {
 				right: -100%;
 				font-size: 2em;
 				width: 80%;
+				padding: 25%;
 				background: #fff;
+
+				// display: table;
 				
 				&.active {
 
@@ -152,16 +160,11 @@ header {
 			text-decoration: none;
 			text-transform: uppercase;
 
-			&:hover {
-
-				background: rgba(50,50,50,0.2);
-
-			}
-
 			@media screen and ( max-width: $on-tablet ) {
 
 				display: block;
-				text-align: left;
+				// text-align: left;
+				padding: 50px 0;
 
 			}
 

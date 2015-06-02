@@ -98,7 +98,9 @@ a {
 
     &:hover {
         color: $text-color;
-        text-decoration: underline;
+        text-decoration: none;
+        background: rgba($grey-color-light,0.5);
+        outline: 5px rgba($grey-color-light,0.5);
     }
 }
 

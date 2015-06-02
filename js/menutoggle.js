@@ -1,28 +1,43 @@
-(function() {
+$(document).ready(function(){
 
   "use strict";
 
-  var toggles = document.querySelectorAll(".cmn-toggle-switch");
-  var menu = document.getElementById("#menu");
+  var toggles = document.querySelectorAll(".cmn-toggle-switch, .section-link");
+  var menu = document.getElementById("menu");
+  var hamburger = document.getElementById("hamburger");
 
   for (var i = toggles.length - 1; i >= 0; i--) {
+  
     var toggle = toggles[i];
-    toggleHandler(toggle,menu);
+    toggleHandler(toggle,menu,hamburger);
+
   };
 
-  function toggleHandler(toggle,menu) {
+  function toggleHandler(toggle,menu,hamburger) {
+
     toggle.addEventListener( "click", function(e) {
-      e.preventDefault();
-      if (this.classList.contains("active") === true) {
-        this.classList.remove("active");
+    
+      // e.preventDefault();
+    
+      if (menu.classList.contains("active") === true) {
+
         menu.classList.remove("active");
+        menu.removeAttribute("style");
+        hamburger.classList.remove("active");
+    
       } else {
-        this.classList.add("active");
+
+        menu.classList.add("active");
+        
         var height = window.outerHeight;
         menu.style.height = height + "px";
-        menu.classList.add("active");
+        
+        hamburger.classList.add("active");
+        
       } 
+    
     });
+  
   }
 
-})();
+});
