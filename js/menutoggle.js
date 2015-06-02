@@ -27,12 +27,16 @@ $(document).ready(function(){
     
       } else {
 
-        menu.classList.add("active");
-        
-        var height = window.outerHeight;
-        menu.style.height = height + "px";
-        
-        hamburger.classList.add("active");
+        if (document.documentElement.clientWidth <= 800) {
+
+          menu.classList.add("active");
+          
+          var height = window.outerHeight;
+          menu.style.height = height + "px";
+          
+          hamburger.classList.add("active");
+          
+        }
         
       } 
     
