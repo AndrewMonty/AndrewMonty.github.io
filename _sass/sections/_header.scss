@@ -42,7 +42,7 @@ header {
 
 	& * {
 	
-		@include transitions(1s);
+		@include transitions(0.5s);
 
 	}
 
@@ -52,7 +52,7 @@ header {
 		position: absolute;
 		top: 0;
 		right: -100%;
-		padding: 20px;
+		// padding: 15px;
 
 		span, span:before, span:after {
 
@@ -113,24 +113,22 @@ header {
 				right: -100%;
 				font-size: 2em;
 				width: 80%;
-				padding: 25%;
+				padding: 20% 10%;
 				background: #fff;
-
-				// display: table;
 				
 				&.active {
 
 					right: 0;
-	
-					&:before {
-						content: " ";
-						position: absolute;
-						top: 0;
-						left: -30%;
-						width: 30%;
-						height: 100%;
-						background: rgba($grey-color-dark,0.5);
-					}
+					box-shadow: -20px 0 20px 10px rgba($grey-color-dark,0.5);	
+					// &:before {
+					// 	content: " ";
+					// 	position: absolute;
+					// 	top: 0;
+					// 	left: -30%;
+					// 	width: 30%;
+					// 	height: 100%;
+					// 	background: rgba($grey-color-dark,0.5);
+					// }
 					
 				}
 
@@ -147,7 +145,7 @@ header {
 			
 			@media screen and ( max-width: $on-tablet ) {
 				
-				height: 70px;
+				height: 50px;
 
 			}
 		}	
@@ -162,9 +160,8 @@ header {
 
 			@media screen and ( max-width: $on-tablet ) {
 
-				display: block;
-				// text-align: left;
-				padding: 50px 0;
+				display: blockk
+				// padding: 50px 0;
 
 			}
 

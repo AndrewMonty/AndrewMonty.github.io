@@ -22,8 +22,10 @@ $(document).ready(function(){
       if (menu.classList.contains("active") === true) {
 
         menu.classList.remove("active");
-        menu.removeAttribute("style");
         hamburger.classList.remove("active");
+        
+        // remove the height after 1 second, so it doesn't shrink before it's done animating
+        setTimeout(function(){ menu.removeAttribute("style") }, 500);
     
       } else {
 

@@ -1,6 +1,6 @@
 ---
 layout: work
-title:  "How It Works Graphic"
+title:  "Print a Shipping Label Graphic"
 date:   2015-05-31 12:58:00
 categories: design graphics
 images: 

@@ -25,15 +25,36 @@
 		background-color: $grey-color;
 		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: 130%;
+		background-size: 140%;
 		
 		float: left;
 		width: 25%;
 		
+		transition: background 0.5s;
+
 		@media screen and ( max-width: $on-laptop ) {
 
 			float: left;
 			width: 50%;
+
+		}
+
+		&.active {
+
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($grey-color-dark,0.9);
+			background-size: 70%;
+			z-index: 999999999;
+
+			.work-thumb-overlay {
+
+				display: none;
+			}
+
 		}
 
 		.work-thumb-overlay {
@@ -50,6 +71,7 @@
 			
 			span {
 
+				font-weight: 600;
 				box-sizing: border-box;
 				padding: 10px;
 				display: block;
@@ -58,6 +80,7 @@
 				left: 0;
 				width: 100%;
 				transform: translateY(-50%);
+				background: url('/assets/icons/magnify.svg') center center no-repeat;
 
 			}
 
