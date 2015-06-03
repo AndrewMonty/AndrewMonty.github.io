@@ -1,3 +1,5 @@
+// control the toggling of the slideout menu on mobile devices
+
 $(document).ready(function(){
 
   "use strict";

@@ -1,3 +1,5 @@
+// control the toggling of fullscreen previews of work images
+
 $(document).ready(function(){
 
   var toggles = $('.work-thumb');
