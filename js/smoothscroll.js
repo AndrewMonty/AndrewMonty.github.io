@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
 
-  $('#home').css({'height':$(window).height() + 'px'});
+  $('#home').css({'min-height':$(window).height() + 'px'});
   console.log($(window).height());
 
 });
