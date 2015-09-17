@@ -14,3 +14,5 @@ markdown: kramdown
 
 collections:
 - sections
+
+excerpt_separator: <!--more-->

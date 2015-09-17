@@ -9,11 +9,17 @@ theme: dark
 	{% for post in site.posts %}
 		{% if post.layout contains 'work' %}
 			{% assign image = post.images[0] %}
-			<a class="work-thumb" style="background-image: url('{{ image.url }}');">
+			<div class="work-thumb" style="background-image: url('{{ image.url }}');">
 				<div class="work-thumb-overlay">
-					<span>{{ post.title }}</span>
+					<div class="work-info">
+						<span class="work-title">{{ post.title }}</span>
+						<span class="work-desc">{{ post.excerpt }}</span>	
+						<a href="{{ post.url }}" class="work-magnify">
+							<img src="/assets/icons/magnify.svg" alt="see larger image">
+						</a>
+					</div>
 				</div>
-			</a>
+			</div>
 		{% endif %}
 	{% endfor %}
 	<div class="clearfix"></div>

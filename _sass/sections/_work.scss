@@ -15,32 +15,38 @@
 	
 	margin: $padding-cozy auto;
 
-	.work-thumb {
+	a, a:hover {
 
+		color: $text-light;
+		text-decoration: none;
+
+	}
+
+	.work-thumb {
 		overflow: hidden;
 		display: block;
-		height: 200px;
+		height: 250px;
+		width: 25%;
 		text-decoration: none;
 		
 		background-color: $grey-color;
 		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: 140%;
+		background-size: cover;
 		
 		float: left;
-		width: 25%;
+
+		box-sizing: border-box;
+		border: 5px solid $background-dark;
 		
 		transition: background 0.5s;
 
 		@media screen and ( max-width: $on-laptop ) {
-
 			float: left;
 			width: 50%;
-
 		}
 
 		&.active {
-
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -51,53 +57,74 @@
 			z-index: 999999999;
 
 			.work-thumb-overlay {
-
 				display: none;
 			}
 
 		}
 
 		.work-thumb-overlay {
-
 			position: relative;
 			top: 100%;
 			height: 100%;
-
-			font-size: 24px;
+			padding: 10px;
 			text-align: center;
-			background: rgba($grey-color-light, 0.9);
-
-			@include transitions(0.3s);
+			background: rgba($background-dark, 0.9);
+			color: white;
+			transition: top 0.3s 0s ease;
 			
-			span {
-
-				font-weight: 600;
-				box-sizing: border-box;
-				padding: 10px;
-				display: block;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				width: 100%;
-				transform: translateY(-50%);
-				background: url('/assets/icons/magnify.svg') center center no-repeat;
-
+			a:hover {
+				background: none;
 			}
 
+			.work-info {
+				position: relative;
+				top: 70%;
+				transition: top 0.3s 0.2s ease;
+			}
+
+			.work-title {
+				text-transform: uppercase;
+				font-weight: 600;
+				box-sizing: border-box;
+				display: block;
+			}
+
+			.work-desc {
+				position: relative;
+				top: 25px;
+				transition: top 0.4s 0.3s ease;
+			}
+
+			.work-magnify {
+				display: block;
+				position: relative;
+				top: 40px;
+				transition: top 0.5s 0.3s ease;
+
+				img {
+					width: 50px;
+					height: 50px;
+				}
+			}
 		}
+
 
 		&:hover {
+			// cursor: pointer;
 
-			cursor: pointer;
-	
 			.work-thumb-overlay {
-
 				top: 0px;
 
+				.work-info {
+					top: 50%;
+					transform: translateY(-50%);
+				}
+
+				.work-desc, .work-magnify {
+					top: 0;
+				}
 			}			
-
 		}
-
 	}
 
 }

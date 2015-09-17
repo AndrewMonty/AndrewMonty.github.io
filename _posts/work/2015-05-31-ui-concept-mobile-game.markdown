@@ -9,3 +9,5 @@ images:
    title: Mobile Game UI Concept
 ---
 Concept for a mobile word game with multiple color schemes
+
+<!--more-->

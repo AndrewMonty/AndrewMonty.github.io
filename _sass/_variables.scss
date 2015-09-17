@@ -1,17 +1,20 @@
 // scss variables to be used sitewide
 // mostly colors
 
-// Our variables
+ ////////////////
+/* Typography */
+
 $base-font-family: Open Sans, Arial, Helvetica, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+ ////////////
+/* Colors */
 
 $brand-color:      #F15A24;
 $text-color:       #323232;
-$text-light:	   #FDFDFD;
+$text-light:       #FDFDFD;
 $background-color: #fdfdfd;
 $background-dark:  #323232;
 
@@ -19,25 +22,36 @@ $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
-// Width of the content area
-$content-width:    800px;
+ ////////////
+/* Layout */
 
-$on-palm:          600px;
-$on-laptop:        800px;
+$spacing-unit:     30px;
 
-// some defaults for vertical padding
 $padding-comfy:	   80px;
 $padding-cozy:	   50px;
 $padding-squished: 20px;
 
 $padding-default:  $padding-comfy;
 
-// transitions
+// Width of the content area
+$content-width:    800px;
 
+$on-palm:          600px;
+$on-tablet:        800px;
+$on-laptop:        960px;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+ /////////////////
+/* Transitions */
 @mixin transitions($time) {
-	
-	// only transition the color for outline
-	// it looks weird when the size transitions
+    
+    // only transition the color for outline
+    // it looks weird when the size transitions
     -webkit-transition: outline 0;
     -moz-transition: outline 0;
     -ms-transition: outline 0;
@@ -56,17 +70,4 @@ $padding-default:  $padding-comfy;
     -o-transition: all $time;
     transition: all $time;
 
-}
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-tablet:        800px;
-$on-laptop:        960px;
-
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
 }

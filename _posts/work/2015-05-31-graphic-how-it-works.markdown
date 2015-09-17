@@ -8,4 +8,6 @@ images:
    alt: Steps for using printashippinglabel.com
    title: How It Works Graphic
 ---
-Graphics for use on the printashippinglabel.com website, illustrating how simple the process is.
+Graphics illustrating the process for printashippinglabel.com website
+
+<!--more-->
