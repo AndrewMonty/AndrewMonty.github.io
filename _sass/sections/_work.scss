@@ -96,10 +96,13 @@
 			}
 
 			.work-links {
-				display: block;
 				position: relative;
 				top: 40px;
 				transition: top 0.5s 0.3s ease;
+
+				a {
+					display: inline-block;
+				}
 
 				span.fa {
 					display: inline-block;
@@ -126,6 +129,7 @@
 				.work-desc, .work-links {
 					top: 0;
 				}
+
 			}			
 		}
 	}
