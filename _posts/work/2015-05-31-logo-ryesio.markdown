@@ -9,5 +9,4 @@ images:
    title: ryes.io Logo
 ---
 Logo design for ryes.io
-
 <!--more-->

@@ -7,7 +7,7 @@ images:
  - url: /assets/work/cambridge_fcu.jpg
    alt: Screenshot of cambridgefcu.com website
    title: Cambridge FCU Website
+external-url: http://cambridgefcu.com
 ---
 Website design and development for cambridgefcu.com.
-
 <!--more-->

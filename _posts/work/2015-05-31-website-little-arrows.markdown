@@ -7,7 +7,7 @@ images:
  - url: /assets/work/little_arrows.jpg
    alt: Screenshot of littlearrows.org
    title: Little Arrows Website
+external-url: http://www.littlearrows.org
 ---
 Web design and development for littlearrows.org
-
 <!--more-->

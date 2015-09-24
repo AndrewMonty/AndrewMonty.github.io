@@ -9,5 +9,4 @@ images:
    title: How It Works Graphic
 ---
 Graphics illustrating the process for printashippinglabel.com website
-
 <!--more-->

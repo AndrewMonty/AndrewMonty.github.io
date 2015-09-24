@@ -9,5 +9,4 @@ images:
    title: Manchester Yoga Center Logo
 ---
 Logo design for Manchester Yoga Center LLC
-
 <!--more-->

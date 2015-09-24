@@ -9,5 +9,4 @@ images:
    title: One Stop Textbooks Logo
 ---
 Logo design for One Stop Textbooks 
-
 <!--more-->

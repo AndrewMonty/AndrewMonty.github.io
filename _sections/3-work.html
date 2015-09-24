@@ -14,9 +14,16 @@ theme: dark
 					<div class="work-info">
 						<span class="work-title">{{ post.title }}</span>
 						<span class="work-desc">{{ post.excerpt }}</span>	
-						<a href="{{ image.url }}" class="work-magnify" data-lightbox="work" data-title="{{ post.title }}">
-							<img src="/assets/icons/magnify.svg" alt="see larger image">
-						</a>
+						<div class="work-links">
+							{% if post.external-url %}
+								<a href="{{ post.external-url }}" target="_blank">
+									<span class="fa fa-external-link"></span>
+								</a>
+							{% endif %}
+							<a href="{{ image.url }}" data-lightbox="work" data-title="{{ post.title }}">
+								<span class="fa fa-search-plus"></span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

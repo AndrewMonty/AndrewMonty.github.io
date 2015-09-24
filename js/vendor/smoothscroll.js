@@ -4,8 +4,8 @@
 $(document).ready(function(){
 
   $('#home').css({'min-height':$(window).height() + 'px'});
-  console.log($(window).height());
-
+  // console.log($(window).height());
+  
 });
 
 // add smooth scrolling to links
