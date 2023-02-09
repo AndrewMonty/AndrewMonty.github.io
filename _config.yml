@@ -12,6 +12,12 @@ github_username:  AndrewMonty
 markdown: kramdown
 
 collections:
-- sections
+  - sections
 
 excerpt_separator: <!--more-->
+
+plugins:
+  - jekyll-postcss
+
+postcss:
+  cache: false
