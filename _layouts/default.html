@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
+    {% include head.html %}
 
-  {% include head.html %}
+    <body class="bg-gray-100 p-8 max-w-5xl mx-auto">
+        {% include header.html %}
 
-  <body class="bg-gray-100">
-
-    {% include header.html %}
-
-    <div class="page-content">
-
-      {{ content }}
-
-    </div>
-
-    {% include footer.html %}
-
-  </body>
-
+        <div>
+            {{ content }}
+        </div>
+    
+        {% include footer.html %}
+    </body>
 </html>
