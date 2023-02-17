@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Git",
+        "icon": "icons/git.svg",
+        "link": "https://git-scm.com"
+    },
+    {
+        "name": "Bitbucket",
+        "icon": "icons/bitbucket.svg",
+        "link": "https://bitbucket.org"
+    },
+    {
+        "name": "Github",
+        "icon": "icons/github.svg",
+        "link": "https://github.com/AndrewMonty"
+    },
+    {
+        "name": "MacOS",
+        "icon": "icons/apple-keyboard-command.svg",
+        "link": "https://www.apple.com/macos/ventura/"
+    },
+    {
+        "name": "Linux",
+        "icon": "icons/linux.svg",
+        "link": "https://ubuntu.com"
+    },
+    {
+        "name": "Windows",
+        "icon": "icons/windows.svg",
+        "link": "https://www.microsoft.com/en-us/windows/windows-11"
+    },
+    {
+        "name": "VS Code",
+        "icon": "icons/visual-studio-code.svg",
+        "link": "https://code.visualstudio.com"
+    },
+    {
+        "name": "Vim",
+        "icon": "icons/vim.svg",
+        "link": "https://www.vim.org"
+    },
+    {
+        "name": "Terminal",
+        "icon": "icons/console.svg",
+        "link": "https://iterm2.com"
+    }
+]

@@ -3,12 +3,18 @@
     {% include head.html %}
 
     <body class="bg-gray-100 p-8 max-w-5xl mx-auto">
-        {% include header.html %}
+        <header>
+            <h1 class="text-4xl font-display">Andrew Monty</h1>
+        </header>
 
-        <div>
+        <div class="mt-4">
             {{ content }}
         </div>
     
-        {% include footer.html %}
+        <footer class="mt-8 flex items-center justify-center">
+            <a href="{{ site.url }}" class="text-gray-400 font-mono">
+                {{ site.url }}
+            </a>
+        </footer>
     </body>
 </html>

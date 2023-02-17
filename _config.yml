@@ -9,7 +9,6 @@ github_username: AndrewMonty
 markdown: kramdown
 
 collections:
-  - cards
 
 excerpt_separator: <!--more-->
 
