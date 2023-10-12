@@ -27,23 +27,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  jekyll:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm install
+      - name: 📂 setup
+        uses: actions/checkout@v3
 
-      - name: Build the site in the jekyll/builder container
-        run: |
-          docker run \
-          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-
-      - name: Deploy to Github Pages
-        uses: crazy-max/ghaction-github-pages@v2.5.0
+      - name: 💎 setup ruby
+        uses: ruby/setup-ruby@v1
         with:
-          build_dir: _site/
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ruby-version: 2.7
+
+      - name: 🔨 install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
+        with:
+          enable_cache: true
+
+      - name: 🚀 deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
 
