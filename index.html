@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Andrew Monty</title>
+    <meta name="description" content="Personal website for web designer/developer Andrew Monty.">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://andrewmonty.website/">
+    <link rel="alternate" type="application/rss+xml" title="Andrew Monty" href="http://andrewmonty.website/feed.xml" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Open Sans font from Google CDN -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
+</head>
+
+
+    <body class="bg-gray-100 p-8 max-w-5xl mx-auto">
+        <header>
+            <h1 class="text-4xl font-display">Andrew Monty</h1>
+        </header>
+
+        <div class="mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section>
+        <img src="/assets/headshot.jpg" alt="Photo of Andrew" class="object-cover rounded-xl" />
+    </section>
+
+    <section class="p-4 rounded-xl md:col-span-2 bg-gradient-to-br from-gray-200 to-blue-200">
+        <div class="prose prose-neutral prose-a:font-semibold">
+    <h2>About me</h2>
+
+    <p>
+        Trained in graphic and web design, I transitioned to coding, using
+        my design skills to enhance user experiences. I enjoy both frontend
+        visuals and backend code, primarily working with PHP, JavaScript,
+        and CSS. Familiar with various frameworks and tools, my favorite
+        by far is the <a href="https://tallstack.dev">TALL stack</a>.
+    </p>
+
+    <p>
+        I value work-life balance and prioritize time with loved ones,
+        especially my two dogs. In my free time, I enjoy trivia nights at
+        breweries, frisbee in the park, and binge-watching shows with
+        my partner.
+    </p>
+</div>
+
+    </section>
+
+    <section class="p-4 rounded-xl bg-gradient-to-tr from-zinc-200 to-teal-300 md:col-span-2">
+        <div class="prose prose-neutral" x-data="{ expanded: false }">
+    <h2>Education</h2>
+
+    <h3>
+        <span class="font-mono">2009</span>
+        - Web Design Certificate @ MCC
+    </h3>
+    <p>
+        Learned basics of HTML, JavaScript <small>...and Macromedia Flash</small>
+    </p>
+    <h3>
+        <span class="font-mono">2008</span>
+        - Associates Degree in Graphic Design @ MCC
+    </h3>
+    <p>
+        Studied color theory, typography, print and package design.
+        Learned how to use Adobe Creative Suite tools.
+    </p>
+
+    <h2>
+        Employment
+    </h2>
+
+    <h3>
+        <span class="font-mono">2020</span>
+        - Software Developer @ JLE Industries
+    </h3>
+    <p>
+        My current gig. Converted a legacy PHP app to a modern Laravel stack.
+        Built new features to support operating a growing fleet of flatbed trucks.
+        Maintain integrations with third party software.
+    </p>
+
+    <h3>
+        <span class="font-mono">2016</span>
+        - Web Developer @ NorAm International Partners, Inc.
+    </h3>
+    <p>
+        Built and maintained several web apps to support warehouse operations processing millions of products from multiple customers.
+    </p>
+
+    <div x-show="expanded" x-collapse>
+        <h3>
+            <span class="font-mono">2012</span>
+            - Data Analyst @ NorAm International Partners, Inc.
+        </h3>
+        <p>
+            Managed automated and ad-hoc reporting on warehouse operations.
+        </p>
+
+        <h3>
+            <span class="font-mono">2011</span>
+            - Operations Consultant @ NorAm International Partners, Inc.
+        </h3>
+        <p>
+            Helped set-up operations and train new hires at new facilities in Frankfurt Germany and Orleans France.
+        </p>
+
+        <h3>
+            <span class="font-mono">2010</span>
+            - Trade-in Operations @ NorAm International Partners, Inc.
+        </h3>
+        <p>
+            Inspected, graded, tracked, and packaged used textbooks for resale.
+        </p>
+
+        <h3>
+            <span class="font-mono">2007</span>
+            - Graphic Design Intern @ J.P. Sercel Associates
+        </h3>
+        <p>
+            Designed product catalog, banners, and other promotional material for trade-shows.
+        </p>
+    </div>
+
+    <button @click="expanded = !expanded"
+        x-text="expanded ? 'see less...' : 'see more...'"
+        class="text-gray-400 hover:underline">
+    </button>
+</div>
+
+    </section>
+
+    <div class="flex flex-col gap-6">
+        <section class="p-4 rounded-xl bg-gradient-to-tr from-red-200 to-purple-200">
+            <h2 class="text-2xl font-bold">Technical experience</h2>
+<p class="mt-2 italic text-right">in no particular order</p>
+
+<ul class="mt-4 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 24 24" class="w-10 h-10">
+    <path d="M12,17.56L16.07,16.43L16.62,10.33H9.38L9.2,8.3H16.8L17,6.31H7L7.56,12.32H14.45L14.22,14.9L12,15.5L9.78,14.9L9.64,13.24H7.64L7.93,16.43L12,17.56M4.07,3H19.93L18.5,19.2L12,21L5.5,19.2L4.07,3Z" />
+</svg>
+            <a href="https://html.spec.whatwg.org/multipage/"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        HTML5
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 24 24" class="w-10 h-10">
+    <path d="M5,3L4.35,6.34H17.94L17.5,8.5H3.92L3.26,11.83H16.85L16.09,15.64L10.61,17.45L5.86,15.64L6.19,14H2.85L2.06,18L9.91,21L18.96,18L20.16,11.97L20.4,10.76L21.94,3H5Z" />
+</svg>
+            <a href="https://www.w3.org/Style/CSS/"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        CSS3
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 54 33" fill="currentColor" class="w-10 h-10">
+    <path fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/>
+</svg>
+            <a href="https://tailwindcss.com"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        Tailwind
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+    <path d="M12,18.08C5.37,18.08 0,15.36 0,12C0,8.64 5.37,5.92 12,5.92C18.63,5.92 24,8.64 24,12C24,15.36 18.63,18.08 12,18.08M6.81,10.13C7.35,10.13 7.72,10.23 7.9,10.44C8.08,10.64 8.12,11 8.03,11.47C7.93,12 7.74,12.34 7.45,12.56C7.17,12.78 6.74,12.89 6.16,12.89H5.29L5.82,10.13H6.81M3.31,15.68H4.75L5.09,13.93H6.32C6.86,13.93 7.3,13.87 7.65,13.76C8,13.64 8.32,13.45 8.61,13.18C8.85,12.96 9.04,12.72 9.19,12.45C9.34,12.19 9.45,11.89 9.5,11.57C9.66,10.79 9.55,10.18 9.17,9.75C8.78,9.31 8.18,9.1 7.35,9.1H4.59L3.31,15.68M10.56,7.35L9.28,13.93H10.7L11.44,10.16H12.58C12.94,10.16 13.18,10.22 13.29,10.34C13.4,10.46 13.42,10.68 13.36,11L12.79,13.93H14.24L14.83,10.86C14.96,10.24 14.86,9.79 14.56,9.5C14.26,9.23 13.71,9.1 12.91,9.1H11.64L12,7.35H10.56M18,10.13C18.55,10.13 18.91,10.23 19.09,10.44C19.27,10.64 19.31,11 19.22,11.47C19.12,12 18.93,12.34 18.65,12.56C18.36,12.78 17.93,12.89 17.35,12.89H16.5L17,10.13H18M14.5,15.68H15.94L16.28,13.93H17.5C18.05,13.93 18.5,13.87 18.85,13.76C19.2,13.64 19.5,13.45 19.8,13.18C20.04,12.96 20.24,12.72 20.38,12.45C20.53,12.19 20.64,11.89 20.7,11.57C20.85,10.79 20.74,10.18 20.36,9.75C20,9.31 19.37,9.1 18.54,9.1H15.79L14.5,15.68Z" />
+</svg>
+            <a href="https://php.net"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        PHP
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 50 52" class="w-10 h-10" fill="currentColor">
+    <path d="M49.626 11.564a.809.809 0 0 1 .028.209v10.972a.8.8 0 0 1-.402.694l-9.209 5.302V39.25c0 .286-.152.55-.4.694L20.42 51.01c-.044.025-.092.041-.14.058-.018.006-.035.017-.054.022a.805.805 0 0 1-.41 0c-.022-.006-.042-.018-.063-.026-.044-.016-.09-.03-.132-.054L.402 39.944A.801.801 0 0 1 0 39.25V6.334c0-.072.01-.142.028-.21.006-.023.02-.044.028-.067.015-.042.029-.085.051-.124.015-.026.037-.047.055-.071.023-.032.044-.065.071-.093.023-.023.053-.04.079-.06.029-.024.055-.05.088-.069h.001l9.61-5.533a.802.802 0 0 1 .8 0l9.61 5.533h.002c.032.02.059.045.088.068.026.02.055.038.078.06.028.029.048.062.072.094.017.024.04.045.054.071.023.04.036.082.052.124.008.023.022.044.028.068a.809.809 0 0 1 .028.209v20.559l8.008-4.611v-10.51c0-.07.01-.141.028-.208.007-.024.02-.045.028-.068.016-.042.03-.085.052-.124.015-.026.037-.047.054-.071.024-.032.044-.065.072-.093.023-.023.052-.04.078-.06.03-.024.056-.05.088-.069h.001l9.611-5.533a.801.801 0 0 1 .8 0l9.61 5.533c.034.02.06.045.09.068.025.02.054.038.077.06.028.029.048.062.072.094.018.024.04.045.054.071.023.039.036.082.052.124.009.023.022.044.028.068zm-1.574 10.718v-9.124l-3.363 1.936-4.646 2.675v9.124l8.01-4.611zm-9.61 16.505v-9.13l-4.57 2.61-13.05 7.448v9.216l17.62-10.144zM1.602 7.719v31.068L19.22 48.93v-9.214l-9.204-5.209-.003-.002-.004-.002c-.031-.018-.057-.044-.086-.066-.025-.02-.054-.036-.076-.058l-.002-.003c-.026-.025-.044-.056-.066-.084-.02-.027-.044-.05-.06-.078l-.001-.003c-.018-.03-.029-.066-.042-.1-.013-.03-.03-.058-.038-.09v-.001c-.01-.038-.012-.078-.016-.117-.004-.03-.012-.06-.012-.09v-.002-21.481L4.965 9.654 1.602 7.72zm8.81-5.994L2.405 6.334l8.005 4.609 8.006-4.61-8.006-4.608zm4.164 28.764l4.645-2.674V7.719l-3.363 1.936-4.646 2.675v20.096l3.364-1.937zM39.243 7.164l-8.006 4.609 8.006 4.609 8.005-4.61-8.005-4.608zm-.801 10.605l-4.646-2.675-3.363-1.936v9.124l4.645 2.674 3.364 1.937v-9.124zM20.02 38.33l11.743-6.704 5.87-3.35-8-4.606-9.211 5.303-8.395 4.833 7.993 4.524z" fill-rule="evenodd"/>
+</svg>
+            <a href="https://laravel.com"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        Laravel
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 54 54" fill="currentColor" class="w-10 h-10">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M46.3823 33.8483C45.7221 34.9242 45.0619 36 43.6664 36C42.3973 36 41.674 35.1103 41 34.1398V42.1664C41 43.8824 39.6089 45.2735 37.8929 45.2735C36.1768 45.2735 34.7857 43.8824 34.7857 42.1664V34.5236C34.2396 35.3327 33.5967 36 32.4976 36C31.3041 36 30.5934 35.2132 29.9524 34.3124V46.5876C29.9524 48.4943 28.4067 50.04 26.5 50.04C24.5933 50.04 23.0476 48.4943 23.0476 46.5876V35.2432C22.6098 35.6931 22.0742 36 21.3288 36C19.9333 36 19.1977 34.9242 18.462 33.8483C18.3798 33.7279 18.2975 33.6076 18.2143 33.4888V40.5303C18.2143 42.2463 16.8232 43.6374 15.1071 43.6374C13.3911 43.6374 12 42.2463 12 40.5303V35.1125C11.54 35.6326 10.9756 36 10.16 36C9.28275 36 8.66626 35.5749 8.1466 34.9918C6.14914 31.5156 5 27.4421 5 23.087C5 10.3364 14.8497 0 27 0C39.1503 0 49 10.3364 49 23.087C49 26.7327 48.1947 30.1811 46.7607 33.2469C46.6313 33.4425 46.5068 33.6454 46.3823 33.8483ZM36.6923 18.1049C36.6923 24.4079 33.471 28.8462 25.8205 28.8462C18.17 28.8462 14.9487 24.4079 14.9487 18.1049C14.9487 11.8019 19.8162 6 25.8205 6C31.8248 6 36.6923 11.8019 36.6923 18.1049Z" />
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M26.9744 13.9615C26.9744 16.4468 25.1491 18.4615 22.8974 18.4615C20.6458 18.4615 18.8205 16.4468 18.8205 13.9615C18.8205 11.4763 20.6458 9.46153 22.8974 9.46153C25.1491 9.46153 26.9744 11.4763 26.9744 13.9615ZM24.2564 12.9231C24.2564 14.0701 23.3438 15 22.218 15C21.0921 15 20.1795 14.0701 20.1795 12.9231C20.1795 11.776 21.0921 10.8461 22.218 10.8461C23.3438 10.8461 24.2564 11.776 24.2564 12.9231Z" />
+</svg>
+
+            <a href="https://laravel-livewire.com"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        Laravel Livewire
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 24 24" class="w-10 h-10">
+    <path d="M3,3H21V21H3V3M7.73,18.04C8.13,18.89 8.92,19.59 10.27,19.59C11.77,19.59 12.8,18.79 12.8,17.04V11.26H11.1V17C11.1,17.86 10.75,18.08 10.2,18.08C9.62,18.08 9.38,17.68 9.11,17.21L7.73,18.04M13.71,17.86C14.21,18.84 15.22,19.59 16.8,19.59C18.4,19.59 19.6,18.76 19.6,17.23C19.6,15.82 18.79,15.19 17.35,14.57L16.93,14.39C16.2,14.08 15.89,13.87 15.89,13.37C15.89,12.96 16.2,12.64 16.7,12.64C17.18,12.64 17.5,12.85 17.79,13.37L19.1,12.5C18.55,11.54 17.77,11.17 16.7,11.17C15.19,11.17 14.22,12.13 14.22,13.4C14.22,14.78 15.03,15.43 16.25,15.95L16.67,16.13C17.45,16.47 17.91,16.68 17.91,17.26C17.91,17.74 17.46,18.09 16.76,18.09C15.93,18.09 15.45,17.66 15.09,17.06L13.71,17.86Z" />
+</svg>
+            <a href="https://developer.mozilla.org/en-US/docs/Glossary/JavaScript"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        JavaScript
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 24 24" class="w-10 h-10">
+    <path d="M12,2.5L20.84,5.65L19.5,17.35L12,21.5L4.5,17.35L3.16,5.65L12,2.5M12,4.6L6.47,17H8.53L9.64,14.22H14.34L15.45,17H17.5L12,4.6M13.62,12.5H10.39L12,8.63L13.62,12.5Z" />
+</svg>
+            <a href="https://angular.io"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        Angular
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 190 134" class="w-10 h-10">
+    <g stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(0.000000, 12.000000)">
+            <polygon id="Path" points="149.520377 10.3027772 189.392477 50 149.520377 89.6972228 109.648276 50"></polygon>
+            <polygon id="Path" points="49.8401255 10.3027772 132.499974 92.6000822 52.7557729 92.6000822 9.96802511 50"></polygon>
+        </g>
+    </g>
+</svg>
+
+            <a href="https://alpinejs.dev"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        AlpineJS
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 32 32" fill="currentColor" class="w-10 h-10">
+    <path d="M 15.994141 3 C 15.629141 3 15.264219 3.0895313 14.949219 3.2695312 L 5.0390625 8.9902344 C 4.3990625 9.3602344 4 10.060781 4 10.800781 L 4 21.179688 C 4 21.929688 4.3990625 22.620234 5.0390625 22.990234 L 7.640625 24.490234 C 8.900625 25.110234 9.3499219 25.109375 9.9199219 25.109375 C 11.789922 25.109375 12.859375 23.979531 12.859375 22.019531 L 12.859375 11.310547 C 12.859375 11.150547 12.730312 11.019531 12.570312 11.019531 L 11.320312 11.019531 C 11.150313 11.019531 11.029297 11.150547 11.029297 11.310547 L 11.029297 22.009766 C 11.029297 22.889766 10.120391 23.749531 8.6503906 23.019531 L 5.9296875 21.449219 C 5.8296875 21.399219 5.7695313 21.289687 5.7695312 21.179688 L 5.7695312 10.810547 C 5.7695312 10.690547 5.8296875 10.589297 5.9296875 10.529297 L 15.839844 4.8105469 C 15.929844 4.7505469 16.050391 4.7505469 16.150391 4.8105469 L 26.060547 10.529297 C 26.160547 10.589297 26.220703 10.690781 26.220703 10.800781 L 26.220703 21.179688 C 26.220703 21.289687 26.160313 21.399219 26.070312 21.449219 L 16.150391 27.179688 C 16.060391 27.229688 15.929844 27.229688 15.839844 27.179688 L 13.289062 25.669922 C 13.219062 25.619922 13.120781 25.610391 13.050781 25.650391 C 12.340781 26.050391 12.210781 26.100078 11.550781 26.330078 C 11.390781 26.380078 11.140625 26.479766 11.640625 26.759766 L 14.949219 28.720703 C 15.269219 28.900703 15.630234 29 15.990234 29 C 16.360234 29 16.719062 28.900703 17.039062 28.720703 L 26.960938 22.990234 C 27.600938 22.620234 28 21.929688 28 21.179688 L 28 10.810547 C 28 10.060547 27.600938 9.37 26.960938 9 L 17.039062 3.2695312 C 16.724063 3.0895313 16.359141 3 15.994141 3 z M 18.660156 11.005859 C 15.830156 11.005859 14.140625 12.205078 14.140625 14.205078 C 14.140625 16.375078 15.819062 16.974141 18.539062 17.244141 C 21.789062 17.564141 22.039062 18.045547 22.039062 18.685547 C 22.039062 19.785547 21.150547 20.255859 19.060547 20.255859 C 16.430547 20.255859 15.850156 19.594922 15.660156 18.294922 C 15.640156 18.154922 15.520859 18.054688 15.380859 18.054688 L 14.089844 18.054688 C 13.929844 18.054688 13.810547 18.185938 13.810547 18.335938 C 13.810547 20.005937 14.720547 21.994141 19.060547 21.994141 C 22.200547 21.994141 24 20.755703 24 18.595703 C 24 16.455703 22.549766 15.884609 19.509766 15.474609 C 16.419766 15.074609 16.109375 14.864531 16.109375 14.144531 C 16.109375 13.544531 16.380156 12.755859 18.660156 12.755859 C 20.690156 12.755859 21.449766 13.194453 21.759766 14.564453 C 21.789766 14.694453 21.899062 14.794922 22.039062 14.794922 L 23.330078 14.794922 C 23.410078 14.794922 23.479063 14.755313 23.539062 14.695312 C 23.589062 14.645313 23.619375 14.564609 23.609375 14.474609 C 23.409375 12.114609 21.840156 11.005859 18.660156 11.005859 z"/>
+</svg>
+            <a href="https://nodejs.org"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        NodeJS
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 24 24" class="w-10 h-10">
+    <path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" />
+</svg>
+            <a href="https://www.iso.org/standard/63555.html"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        SQL
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+        <li class="relative aspect-square rounded-lg p-2 flex flex-col items-center justify-center gap-2 bg-white/50">
+            <svg viewBox="0 0 48 48" fill="currentColor" class="w-10 h-10">
+    <path d="M 22.5 6 C 22.224 6 22 6.224 22 6.5 L 22 9.5 C 22 9.776 22.224 10 22.5 10 L 25.5 10 C 25.776 10 26 9.776 26 9.5 L 26 6.5 C 26 6.224 25.776 6 25.5 6 L 22.5 6 z M 10.5 12 C 10.224 12 10 12.224 10 12.5 L 10 15.5 C 10 15.776 10.224 16 10.5 16 L 13.5 16 C 13.776 16 14 15.776 14 15.5 L 14 12.5 C 14 12.224 13.776 12 13.5 12 L 10.5 12 z M 16.5 12 C 16.224 12 16 12.224 16 12.5 L 16 15.5 C 16 15.776 16.224 16 16.5 16 L 19.5 16 C 19.776 16 20 15.776 20 15.5 L 20 12.5 C 20 12.224 19.776 12 19.5 12 L 16.5 12 z M 22.5 12 C 22.224 12 22 12.224 22 12.5 L 22 15.5 C 22 15.776 22.224 16 22.5 16 L 25.5 16 C 25.776 16 26 15.776 26 15.5 L 26 12.5 C 26 12.224 25.776 12 25.5 12 L 22.5 12 z M 37.478516 14.300781 L 37.025391 14.951172 C 36.458391 15.825172 36.045734 16.787828 35.802734 17.798828 C 35.343734 19.731828 35.621422 21.546656 36.607422 23.097656 C 35.416422 23.758656 33.386 23.986 33 24 L 2 24 C 0.895 24 0 24.895 0 26 C 0 28 0.43371875 30.924625 1.3867188 33.515625 C 2.4757187 36.359625 4.0970781 38.454328 6.2050781 39.736328 C 8.5670781 41.177328 12.404859 42 16.755859 42 C 18.720859 42.006 20.683234 41.828703 22.615234 41.470703 C 25.301234 40.979703 27.885719 40.045078 30.261719 38.705078 C 32.219719 37.576078 33.981469 36.139172 35.480469 34.451172 C 37.985469 31.627172 39.477891 28.4815 40.587891 25.6875 C 40.592891 25.6845 40.596562 25.683688 40.601562 25.679688 C 43.598562 25.800687 45.412625 24.642688 46.390625 23.679688 C 47.008625 23.095688 47.491688 22.38275 47.804688 21.59375 L 48 21.021484 L 47.527344 20.650391 C 47.397344 20.547391 46.182141 19.632812 43.619141 19.632812 C 42.942141 19.635813 42.266609 19.694641 41.599609 19.806641 C 41.103609 16.421641 38.293969 14.769313 38.167969 14.695312 L 37.478516 14.300781 z M 4.5 18 C 4.224 18 4 18.224 4 18.5 L 4 21.5 C 4 21.776 4.224 22 4.5 22 L 7.5 22 C 7.776 22 8 21.776 8 21.5 L 8 18.5 C 8 18.224 7.776 18 7.5 18 L 4.5 18 z M 10.5 18 C 10.224 18 10 18.224 10 18.5 L 10 21.5 C 10 21.776 10.224 22 10.5 22 L 13.5 22 C 13.776 22 14 21.776 14 21.5 L 14 18.5 C 14 18.224 13.776 18 13.5 18 L 10.5 18 z M 16.5 18 C 16.224 18 16 18.224 16 18.5 L 16 21.5 C 16 21.776 16.224 22 16.5 22 L 19.5 22 C 19.776 22 20 21.776 20 21.5 L 20 18.5 C 20 18.224 19.776 18 19.5 18 L 16.5 18 z M 22.5 18 C 22.224 18 22 18.224 22 18.5 L 22 21.5 C 22 21.776 22.224 22 22.5 22 L 25.5 22 C 25.776 22 26 21.776 26 21.5 L 26 18.5 C 26 18.224 25.776 18 25.5 18 L 22.5 18 z M 28.5 18 C 28.224 18 28 18.224 28 18.5 L 28 21.5 C 28 21.776 28.224 22 28.5 22 L 31.5 22 C 31.776 22 32 21.776 32 21.5 L 32 18.5 C 32 18.224 31.776 18 31.5 18 L 28.5 18 z"/>
+</svg>
+            <a href="https://www.docker.com"
+                class="block absolute inset-0 rounded-lg opacity-0 hover:opacity-100 bg-white/80 backdrop-blur-sm transition-opacity">
+                <div class="h-full flex flex-col items-center justify-center">
+                    <span class="text-sm font-bold text-center">
+                        Docker
+                    </span>
+                </div>
+            </a>
+        </li>
+    
+</ul>
+
+        </section>
+        <section class="p-4 rounded-xl bg-gradient-to-br from-yellow-200 to-orange-300 overflow-hidden">
+            <div class="flex items-center gap-3">
+                <svg viewbox="0 0 98 96" class="w-10 h-10" fill="currentColor">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" />
+</svg>
+                <span class="text-lg">Check me out on Github</span>
+            </div>
+            <a href="https://github.com/AndrewMonty" class="block mt-3 font-semibold hover:underline">
+                https://github.com/AndrewMonty
+            </a>
+        </section>
+    </div>
+</div>
+
+        </div>
+    
+        <footer class="mt-8 flex items-center justify-center">
+            <a href="http://andrewmonty.website" class="text-gray-400 font-mono">
+                http://andrewmonty.website
+            </a>
+        </footer>
+    </body>
+</html>
