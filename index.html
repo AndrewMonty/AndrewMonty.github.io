@@ -1,17 +1,31 @@
 ---
 layout: default
 ---
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section>
+        <img src="{{ site.baseurl }}/assets/headshot.jpg" alt="Photo of Andrew" class="object-cover rounded-xl" />
+    </section>
 
-{% for section in site.sections %}
-	
-	<section id="{{ section.title }}" 
-		{% if section.background-image %}
-			style="background-image: url('{{ section.background-image }}');"
-		{% endif %}
-		class="{{ section.theme }}">
-		<div class="wrapper">
-			{{ section.content }}	
-		</div>
-	</section>
-	
-{% endfor %}
+    <section class="p-4 rounded-xl md:col-span-2 bg-gradient-to-br from-gray-200 to-blue-200">
+        {% include about.html %}
+    </section>
+
+    <section class="p-4 rounded-xl bg-gradient-to-tr from-zinc-200 to-teal-300 md:col-span-2">
+        {% include resume.html %}
+    </section>
+
+    <div class="flex flex-col gap-6">
+        <section class="p-4 rounded-xl bg-gradient-to-tr from-red-200 to-purple-200">
+            {% include tech-experience.html %}
+        </section>
+        <section class="p-4 rounded-xl bg-gradient-to-br from-yellow-200 to-orange-300 overflow-hidden">
+            <div class="flex items-center gap-3">
+                {% include icons/github.svg %}
+                <span class="text-lg">Check me out on Github</span>
+            </div>
+            <a href="https://github.com/AndrewMonty" class="block mt-3 font-semibold hover:underline">
+                https://github.com/AndrewMonty
+            </a>
+        </section>
+    </div>
+</div>

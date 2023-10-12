@@ -1,18 +1,19 @@
-# Site settings
 title: Andrew Monty
 logo: /assets/logo.svg
 email: andrew1503@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  This is a portfolio website to showcase the work of designer Andrew Monty.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://andrewmonty.website" # the base hostname & protocol for your site
-twitter_username: andrew1503
-github_username:  andrew1503
+description: Personal website for web designer/developer Andrew Monty.
+baseurl: ""
+url: "http://andrewmonty.website"
+github_username: AndrewMonty
 
-# Build settings
 markdown: kramdown
 
 collections:
-- sections
 
 excerpt_separator: <!--more-->
+
+plugins:
+  - jekyll-postcss
+
+postcss:
+  cache: false
