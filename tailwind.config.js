@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Source Sans Pro"', 'ui-sans-serif', 'system-ui'],
+        'sans': ['"Open Sans Pro"', 'ui-sans-serif', 'system-ui'],
         'display': ['"Roboto Slab"', '"Arial Black"']
       }
     },
