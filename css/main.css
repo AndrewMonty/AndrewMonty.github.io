@@ -1029,8 +1029,17 @@ video {
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+.h-10 {
+  height: 2.5rem;
+}
+.h-3 {
+  height: 0.75rem;
+}
 .h-full {
   height: 100%;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .max-w-5xl {
   max-width: 64rem;
