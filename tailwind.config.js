@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './**/*.html',
     './**/*.md',
+    './**/*.svg',
   ],
   theme: {
     extend: {
