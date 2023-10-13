@@ -3,7 +3,7 @@ logo: /assets/logo.svg
 email: andrew1503@gmail.com
 description: Personal website for web designer/developer Andrew Monty.
 baseurl: ""
-url: "http://andrewmonty.website"
+url: "https://andrewmonty.website"
 github_username: AndrewMonty
 
 markdown: kramdown
