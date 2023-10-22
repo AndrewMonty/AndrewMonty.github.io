@@ -58,5 +58,20 @@
         "name": "Docker",
         "icon": "icons/docker.svg",
         "link": "https://www.docker.com"
+    },
+    {
+        "name": "Git",
+        "icon": "icons/git.svg",
+        "link": "https://git-scm.com/"
+    },
+    {
+        "name": "GitHub",
+        "icon": "icons/github.svg",
+        "link": "https://github.com"
+    },
+        {
+        "name": "Bitbucket",
+        "icon": "icons/bitbucket.svg",
+        "link": "https://bitbucket.org"
     }
 ]
