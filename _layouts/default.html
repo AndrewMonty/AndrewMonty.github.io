@@ -2,16 +2,10 @@
 <html>
     {% include head.html %}
 
-    <body class="bg-gray-100 dark:bg-zinc-800 p-8 max-w-5xl mx-auto">
-        <header>
-            <h1 class="text-4xl font-display dark:text-neutral-200">Andrew Monty</h1>
-        </header>
+    <body class="bg-gray-100 dark:bg-zinc-800">
+        {{ content }}
 
-        <div class="mt-4">
-            {{ content }}
-        </div>
-
-        <footer class="mt-8 flex items-center justify-center">
+        <footer class="p-4 flex items-center justify-center">
             <a href="{{ site.url }}" class="text-gray-400 font-mono hover:underline">
                 {{ site.url }}
             </a>
