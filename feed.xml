@@ -5,9 +5,214 @@
     <description>Personal website for web designer/developer Andrew Monty.</description>
     <link>https://andrewmonty.website/</link>
     <atom:link href="https://andrewmonty.website/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Oct 2023 19:06:45 +0000</pubDate>
-    <lastBuildDate>Mon, 23 Oct 2023 19:06:45 +0000</lastBuildDate>
+    <pubDate>Tue, 07 Nov 2023 04:18:22 +0000</pubDate>
+    <lastBuildDate>Tue, 07 Nov 2023 04:18:22 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>Toasts with AlpineJS</title>
+        <description>&lt;p&gt;File this under little web components I’ve built multiple times
+and never remember how I did it before.&lt;/p&gt;
+
+&lt;p&gt;You know, the little popup in the corner informing you…
+“hey you know that thing you just told me to do? I did it, it’s done.”&lt;/p&gt;
+
+&lt;p&gt;Let’s make one using AlpineJS and TailwindCSS.&lt;/p&gt;
+
+&lt;p&gt;Sure there’s probably a nice plugin out there, or just buy Alpine UI Components
+and move on with your day. I was an early adopter of Alpine though, and
+really enjoyed building this from scratch so figured I’d share.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-toaster&quot;&gt;The Toaster&lt;/h2&gt;
+
+&lt;p&gt;Let’s start with a container to hold the toasts - the toaster, if you will.
+I like my toasts in the bottom left, but feel free to get creative with it.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-data&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fixed bottom-5 left-5&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How do we keep track of our toasts, toast? Pieces of toast?
+Let’s go all in on the metaphor, our toaster has slots, and
+we’ll have a toast method that accepts bread.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fixed bottom-5 left-5&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;x-data=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{
+        slots: [],
+        toast (bread) {
+            this.slots.push(bread)
+        }
+    }&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We probably want to be able to toast bread from elsewhere
+on the page, so lets listen for a toast event.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;fixed bottom-5 left-5&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;{
+        slots: [],
+        toast (bread) {
+            this.slots.push(bread)
+        }
+    }&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;toast($event.detail.bread)&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now let’s display the toast with a template&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fixed bottom-5 left-5&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;x-data=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{
+        slots: [],
+        toast (bread) {
+            this.slots.push(bread)
+        }
+    }&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;x-on:toast.window=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toast($event.detail.bread)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(toast, index) in slots&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toast&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s a simple form to fire a toast event.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-data=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{ bread: &apos;&apos; }&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;x-on:submit.prevent=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;$dispatch(&apos;toast&apos;, bread); bread = &apos;&apos;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bread&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;required&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toast to something...&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        Toast
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;section class=&quot;rounded-lg p-8 bg-white dark:bg-zinc-900/20 border dark:border-zinc-700&quot;&gt;
+    &lt;form x-data=&quot;{ bread: &apos;&apos; }&quot; x-on:submit.prevent=&quot;$dispatch(&apos;toast-alpha&apos;, bread); bread = &apos;&apos;&quot;&gt;
+        &lt;input type=&quot;text&quot; required=&quot;&quot; placeholder=&quot;toast to something...&quot; class=&quot;px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900&quot; /&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600&quot;&gt;
+            Toast
+        &lt;/button&gt;
+    &lt;/form&gt;
+&lt;/section&gt;
+
+&lt;p&gt;Cool, it works, kinda!&lt;/p&gt;
+
+&lt;p&gt;They don’t look super pretty, also they just stack up endlessly…
+usually toasts dissapear on their own after a few seconds.
+Adding a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setTimeout&lt;/code&gt; to our toast method should fix that.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;toast &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;splice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;section class=&quot;rounded-lg p-8 bg-white dark:bg-zinc-900/20 border dark:border-zinc-700&quot;&gt;
+    These toasts will dissapear after five seconds.
+    &lt;form x-data=&quot;{ bread: &apos;&apos; }&quot; class=&quot;mt-3&quot; x-on:submit.prevent=&quot;$dispatch(&apos;toast-beta&apos;, bread); bread = &apos;&apos;&quot;&gt;
+        &lt;input type=&quot;text&quot; x-model=&quot;bread&quot; required=&quot;&quot; placeholder=&quot;toast to something...&quot; class=&quot;px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900&quot; /&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600&quot;&gt;
+            Toast
+        &lt;/button&gt;
+    &lt;/form&gt;
+&lt;/section&gt;
+
+&lt;p&gt;Finally let’s make our toasts look a little nicer with
+some styles and animation.&lt;/p&gt;
+
+&lt;p&gt;Animations only work with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x-show&lt;/code&gt; directive, so we’ll
+make each toast its own component that shows immediately,
+then hides with enough time to finish the animation before
+the parent component removes it from the list.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(toast, index) in slots&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-bind:key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;index&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-3 p-4 z-50 bg-white border border-gray-300 dark:bg-zinc-900 dark:border-gray-600 w-full sm:w-64 shadow rounded-lg flex items-center justify-between bg-opacity-90 dark:bg-opacity-90 backdrop-blur&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-data=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{show: false}&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-init=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;$nextTick(() =&amp;gt; show = true); setTimeout(() =&amp;gt; show = false, 4300)&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-show=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;show&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-transition:enter=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transition ease-out duration-300&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-transition:enter-start=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;translate-y-3 opacity-0 transform&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-transition:enter-end=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;opacity-100 transform translate-y-0&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-transition:leave=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transition ease-in duration-600&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-transition:leave-start=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;opacity-100 transform translate-y-0&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;x-transition:leave-end=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;translate-y-6 opacity-0 transform&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-sm&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x-text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toast&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/template&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;section class=&quot;rounded-lg p-8 bg-white dark:bg-zinc-900/20 border dark:border-zinc-700&quot;&gt;
+    These toasts are pretty.
+    &lt;form x-data=&quot;{ bread: &apos;&apos; }&quot; class=&quot;mt-3&quot; x-on:submit.prevent=&quot;$dispatch(&apos;toast-gamma&apos;, bread); bread = &apos;&apos;&quot;&gt;
+        &lt;input type=&quot;text&quot; x-model=&quot;bread&quot; required=&quot;&quot; placeholder=&quot;toast to something...&quot; class=&quot;px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900&quot; /&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600&quot;&gt;
+            Toast
+        &lt;/button&gt;
+    &lt;/form&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+    &lt;div class=&quot;fixed bottom-5 left-5&quot; x-data=&quot;{
+            slots: [],
+            toast (bread) {
+                this.slots.push(bread)
+            }
+        }&quot; x-on:toast-alpha.window=&quot;toast($event.detail)&quot;&gt;
+        &lt;template x-for=&quot;(toast, index) in slots&quot;&gt;
+            &lt;p x-text=&quot;toast&quot;&gt;&lt;/p&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+    &lt;div class=&quot;fixed bottom-5 left-5&quot; x-data=&quot;{
+            slots: [],
+            toast (bread) {
+                this.slots.push(bread)
+                setTimeout(() =&amp;gt; {
+                    this.slots.splice(this.slots.indexOf(bread), 1)
+                }, 5000)
+            }
+        }&quot; x-on:toast-beta.window=&quot;toast($event.detail)&quot;&gt;
+        &lt;template x-for=&quot;(toast, index) in slots&quot;&gt;
+            &lt;p x-text=&quot;toast&quot;&gt;&lt;/p&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+    &lt;div class=&quot;fixed bottom-5 inset-x-5&quot; x-data=&quot;{
+            slots: [],
+            toast (bread) {
+                this.slots.push(bread)
+                setTimeout(() =&amp;gt; {
+                    this.slots.splice(this.slots.indexOf(bread), 1)
+                }, 5000)
+            },
+        }&quot; x-on:toast-gamma.window=&quot;toast($event.detail)&quot;&gt;
+        &lt;template x-for=&quot;(toast, index) in slots&quot; x-bind:key=&quot;index&quot;&gt;
+            &lt;div class=&quot;mt-3 p-4 z-50 bg-white border border-gray-300 dark:bg-zinc-900 dark:border-gray-600 w-full sm:w-64 shadow rounded-lg flex items-center justify-between bg-opacity-90 dark:bg-opacity-90 backdrop-blur&quot; x-data=&quot;{show: false}&quot; x-init=&quot;$nextTick(() =&amp;gt; show = true); setTimeout(() =&amp;gt; show = false, 4400)&quot; x-show=&quot;show&quot; x-transition:enter=&quot;transition ease-out duration-300&quot; x-transition:enter-start=&quot;translate-y-3 opacity-0 transform&quot; x-transition:enter-end=&quot;opacity-100 transform translate-y-0&quot; x-transition:leave=&quot;transition ease-in duration-600&quot; x-transition:leave-start=&quot;opacity-100 transform translate-y-0&quot; x-transition:leave-end=&quot;translate-y-6 opacity-0 transform&quot;&gt;
+                &lt;span class=&quot;text-sm&quot; x-text=&quot;toast&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+</description>
+        <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+        <link>https://andrewmonty.website/2023/10/23/toasts-in-alpinejs.html</link>
+        <guid isPermaLink="true">https://andrewmonty.website/2023/10/23/toasts-in-alpinejs.html</guid>
+        
+        
+      </item>
     
   </channel>
 </rss>

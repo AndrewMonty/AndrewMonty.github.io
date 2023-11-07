@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Toasts with AlpineJS</title>
+    <meta name="description" content="File this under little web components I’ve built multiple timesand never remember how I did it before.You know, the little popup in the corner informing you…...">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://andrewmonty.website/2023/10/23/toasts-in-alpinejs.html">
+    <link rel="alternate" type="application/rss+xml" title="Andrew Monty" href="https://andrewmonty.website/feed.xml" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+
+    <body class="bg-gray-100 dark:bg-zinc-800">
+        <header class="p-8 flex gap-4 items-center justify-between font-mono text-neutral-400">
+    <a href="/" class="hover:underline hover:text-black dark:hover:text-white flex gap-2 items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+        </svg>
+        home
+    </a>
+    <p>Oct 23, 2023</p>
+</header>
+
+<article class="p-8 max-w-5xl mx-auto prose prose-neutral dark:prose-invert">
+    <h1 class="text-4xl font-display dark:text-neutral-200">Toasts with AlpineJS</h1>
+    <p>File this under little web components I’ve built multiple times
+and never remember how I did it before.</p>
+
+<p>You know, the little popup in the corner informing you…
+“hey you know that thing you just told me to do? I did it, it’s done.”</p>
+
+<p>Let’s make one using AlpineJS and TailwindCSS.</p>
+
+<p>Sure there’s probably a nice plugin out there, or just buy Alpine UI Components
+and move on with your day. I was an early adopter of Alpine though, and
+really enjoyed building this from scratch so figured I’d share.</p>
+
+<h2 id="the-toaster">The Toaster</h2>
+
+<p>Let’s start with a container to hold the toasts - the toaster, if you will.
+I like my toasts in the bottom left, but feel free to get creative with it.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">x-data</span> <span class="na">class=</span><span class="s">"fixed bottom-5 left-5"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>How do we keep track of our toasts, toast? Pieces of toast?
+Let’s go all in on the metaphor, our toaster has slots, and
+we’ll have a toast method that accepts bread.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fixed bottom-5 left-5"</span>
+    <span class="na">x-data=</span><span class="s">"{
+        slots: [],
+        toast (bread) {
+            this.slots.push(bread)
+        }
+    }"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>We probably want to be able to toast bread from elsewhere
+on the page, so lets listen for a toast event.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">fixed bottom-5 left-5</span><span class="dl">"</span>
+    <span class="nx">x</span><span class="o">-</span><span class="nx">data</span><span class="o">=</span><span class="dl">"</span><span class="s2">{
+        slots: [],
+        toast (bread) {
+            this.slots.push(bread)
+        }
+    }</span><span class="dl">"</span>
+    <span class="nx">x</span><span class="o">-</span><span class="nx">on</span><span class="p">:</span><span class="nx">toast</span><span class="p">.</span><span class="nb">window</span><span class="o">=</span><span class="dl">"</span><span class="s2">toast($event.detail.bread)</span><span class="dl">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Now let’s display the toast with a template</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fixed bottom-5 left-5"</span>
+    <span class="na">x-data=</span><span class="s">"{
+        slots: [],
+        toast (bread) {
+            this.slots.push(bread)
+        }
+    }"</span>
+    <span class="na">x-on:toast.window=</span><span class="s">"toast($event.detail.bread)"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;template</span> <span class="na">x-for=</span><span class="s">"(toast, index) in slots"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">x-text=</span><span class="s">"toast"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;/template&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Here’s a simple form to fire a toast event.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">x-data=</span><span class="s">"{ bread: '' }"</span>
+    <span class="na">x-on:submit.prevent=</span><span class="s">"$dispatch('toast', bread); bread = ''"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span>
+        <span class="na">x-model=</span><span class="s">"bread"</span>
+        <span class="na">required</span>
+        <span class="na">placeholder=</span><span class="s">"toast to something..."</span>
+        <span class="na">class=</span><span class="s">"px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span>
+        <span class="na">class=</span><span class="s">"ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600"</span><span class="nt">&gt;</span>
+        Toast
+    <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<section class="rounded-lg p-8 bg-white dark:bg-zinc-900/20 border dark:border-zinc-700">
+    <form x-data="{ bread: '' }" x-on:submit.prevent="$dispatch('toast-alpha', bread); bread = ''">
+        <input type="text" required="" placeholder="toast to something..." class="px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900" />
+        <button type="submit" class="ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600">
+            Toast
+        </button>
+    </form>
+</section>
+
+<p>Cool, it works, kinda!</p>
+
+<p>They don’t look super pretty, also they just stack up endlessly…
+usually toasts dissapear on their own after a few seconds.
+Adding a <code class="language-plaintext highlighter-rouge">setTimeout</code> to our toast method should fix that.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">toast </span><span class="p">(</span><span class="nx">bread</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">slots</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">bread</span><span class="p">)</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">slots</span><span class="p">.</span><span class="nf">splice</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">slots</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="nx">bread</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">},</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<section class="rounded-lg p-8 bg-white dark:bg-zinc-900/20 border dark:border-zinc-700">
+    These toasts will dissapear after five seconds.
+    <form x-data="{ bread: '' }" class="mt-3" x-on:submit.prevent="$dispatch('toast-beta', bread); bread = ''">
+        <input type="text" x-model="bread" required="" placeholder="toast to something..." class="px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900" />
+        <button type="submit" class="ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600">
+            Toast
+        </button>
+    </form>
+</section>
+
+<p>Finally let’s make our toasts look a little nicer with
+some styles and animation.</p>
+
+<p>Animations only work with the <code class="language-plaintext highlighter-rouge">x-show</code> directive, so we’ll
+make each toast its own component that shows immediately,
+then hides with enough time to finish the animation before
+the parent component removes it from the list.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;template</span> <span class="na">x-for=</span><span class="s">"(toast, index) in slots"</span> <span class="na">x-bind:key=</span><span class="s">"index"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mt-3 p-4 z-50 bg-white border border-gray-300 dark:bg-zinc-900 dark:border-gray-600 w-full sm:w-64 shadow rounded-lg flex items-center justify-between bg-opacity-90 dark:bg-opacity-90 backdrop-blur"</span>
+        <span class="na">x-data=</span><span class="s">"{show: false}"</span>
+        <span class="na">x-init=</span><span class="s">"$nextTick(() =&gt; show = true); setTimeout(() =&gt; show = false, 4300)"</span>
+        <span class="na">x-show=</span><span class="s">"show"</span>
+        <span class="na">x-transition:enter=</span><span class="s">"transition ease-out duration-300"</span>
+        <span class="na">x-transition:enter-start=</span><span class="s">"translate-y-3 opacity-0 transform"</span>
+        <span class="na">x-transition:enter-end=</span><span class="s">"opacity-100 transform translate-y-0"</span>
+        <span class="na">x-transition:leave=</span><span class="s">"transition ease-in duration-600"</span>
+        <span class="na">x-transition:leave-start=</span><span class="s">"opacity-100 transform translate-y-0"</span>
+        <span class="na">x-transition:leave-end=</span><span class="s">"translate-y-6 opacity-0 transform"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-sm"</span> <span class="na">x-text=</span><span class="s">"toast"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre></div></div>
+
+<section class="rounded-lg p-8 bg-white dark:bg-zinc-900/20 border dark:border-zinc-700">
+    These toasts are pretty.
+    <form x-data="{ bread: '' }" class="mt-3" x-on:submit.prevent="$dispatch('toast-gamma', bread); bread = ''">
+        <input type="text" x-model="bread" required="" placeholder="toast to something..." class="px-3 py-1 rounded border dark:border-zinc-700 dark:bg-zinc-900" />
+        <button type="submit" class="ml-2 px-3 py-1 rounded bg-zinc-300 dark:bg-zinc-600">
+            Toast
+        </button>
+    </form>
+</section>
+
+<section>
+    <div class="fixed bottom-5 left-5" x-data="{
+            slots: [],
+            toast (bread) {
+                this.slots.push(bread)
+            }
+        }" x-on:toast-alpha.window="toast($event.detail)">
+        <template x-for="(toast, index) in slots">
+            <p x-text="toast"></p>
+        </template>
+    </div>
+</section>
+
+<section>
+    <div class="fixed bottom-5 left-5" x-data="{
+            slots: [],
+            toast (bread) {
+                this.slots.push(bread)
+                setTimeout(() =&gt; {
+                    this.slots.splice(this.slots.indexOf(bread), 1)
+                }, 5000)
+            }
+        }" x-on:toast-beta.window="toast($event.detail)">
+        <template x-for="(toast, index) in slots">
+            <p x-text="toast"></p>
+        </template>
+    </div>
+</section>
+
+<section>
+    <div class="fixed bottom-5 inset-x-5" x-data="{
+            slots: [],
+            toast (bread) {
+                this.slots.push(bread)
+                setTimeout(() =&gt; {
+                    this.slots.splice(this.slots.indexOf(bread), 1)
+                }, 5000)
+            },
+        }" x-on:toast-gamma.window="toast($event.detail)">
+        <template x-for="(toast, index) in slots" x-bind:key="index">
+            <div class="mt-3 p-4 z-50 bg-white border border-gray-300 dark:bg-zinc-900 dark:border-gray-600 w-full sm:w-64 shadow rounded-lg flex items-center justify-between bg-opacity-90 dark:bg-opacity-90 backdrop-blur" x-data="{show: false}" x-init="$nextTick(() =&gt; show = true); setTimeout(() =&gt; show = false, 4400)" x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-y-3 opacity-0 transform" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-600" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="translate-y-6 opacity-0 transform">
+                <span class="text-sm" x-text="toast"></span>
+            </div>
+        </template>
+    </div>
+</section>
+
+
+</article>
+
+
+        <footer class="p-4 flex items-center justify-center">
+            <a href="https://andrewmonty.website" class="text-gray-400 font-mono hover:underline">
+                https://andrewmonty.website
+            </a>
+        </footer>
+    </body>
+</html>
